@@ -3,10 +3,11 @@ import time
 import socket
 
 serverAddr = ("192.168.2.38", 6000)
-
+clinetAddr = ("0.0.0.0", 6001)
 joy = xbox.Joystick()
+
 client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-client.bind(("0.0.0.0", 6001))
+client.bind(clinetAddr)
 prevTime = time.time()
 
 try:
@@ -24,7 +25,7 @@ try:
             prevTime = time.time()
 
 except KeyboardInterrupt as e:
-    data = str(['drive', 0, 0]).encode("utf-8")
+    data = str(["drive", 0, 0]).encode("utf-8")
     client.sendto(data, serverAddr)
     joy.close()
     print("terminate")
