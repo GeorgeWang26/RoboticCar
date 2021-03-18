@@ -1,7 +1,8 @@
 from flask import Flask,render_template, Response
 import cv2
 
-cam = cv2.VideoCapture(0)
+#cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture("http://127.0.0.1:8081/?action=stream")
 
 app = Flask(__name__)
 
