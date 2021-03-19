@@ -14,9 +14,9 @@ try:
             x = stick[0] * 0.3
             y = stick[1] * 0.8
             # here will be sending msg
-            # print(x, y)
-            print(count)
-            count+=1
+            print(x, y)
+            # print(count)
+            # count+=1
             # get newest time again for pressision
             prevTime = time.time()
         

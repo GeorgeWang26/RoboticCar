@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 import time
 
+# for left and right side
+# positive speed is forward, negative speed is backward
+
 #GPIO.cleanup()
 
 in1 = 23
@@ -59,7 +62,7 @@ def right(speed):
 #time.sleep(5)
 
 #right backward
-right(-75)
-time.sleep(5)
+#right(-75)
+#time.sleep(5)
 
 shutdown()
