@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
 import time
 
-# for left and right side
-# positive speed is forward, negative speed is backward
-# 0 <= speed <= 100
+# 0 <= pwm duty cycle <= 100
 
-#GPIO.cleanup()
+# for both left and right side
+# positive speed is forward, negative speed is backward
+
 
 in1 = 23
 in2 = 24
@@ -41,14 +41,17 @@ def drive(in_1, in_2, pwm, speed):
         GPIO.output(in_2, GPIO.HIGH)
     pwm.ChangeDutyCycle(abs(speed))
     
-def close():
-    GPIO.cleanup()
 
 def left(speed):
     drive(in1, in2, pwma, speed)
     
 def right(speed):
     drive(in3, in4, pwmb, speed)
+
+def close():
+    left(0)
+    right(0)
+    GPIO.cleanup()
 
 #left forward
 #left(75)
@@ -63,11 +66,7 @@ def right(speed):
 #time.sleep(5)
 
 #right backward
-<<<<<<< HEAD
 #right(-75)
-=======
-#right(75)
->>>>>>> 04039d4401cbd88a3d203c442ed6a1b86a8fe580
 #time.sleep(5)
 
 #close()

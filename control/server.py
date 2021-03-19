@@ -16,33 +16,16 @@ try:
         
         if redable:
             msg, adr = server.recvfrom(1024)
-            print(type(msg.decode("utf-8")), msg.decode("utf-8"))
             data = ast.literal_eval(msg.decode("utf-8"))
-            # data = list()
+            print(data)
             header = data[0]
             
             if header == "drive":
-                # robot movement control
-                x = data[1]
-                y = data[2]
-                leftSpeed = 100*(y+x)
-                rightSpeed = 100*(y-x)
-                
-                if leftSpeed > 100:
-                    leftSpeed = 100
-                elif leftSpeed < -100:
-                    leftSpeed = -100
-                    
-                if rightSpeed > 100:
-                    rightSpeed = 100
-                elif rightSpeed < -100:
-                    rightSpeed = -100
-                
+                leftSpeed = data[1]
+                rightSpeed = data[2]
                 print("movement", leftSpeed, rightSpeed)
-                # drive DC motor here
                 l298nControl.left(leftSpeed)
                 l298nControl.right(rightSpeed)
-                
                 
             elif header == "cam":
                 # camera control
