@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 import time
 
+# 0 <= speed <= 100
+
 #GPIO.cleanup()
 
 in1 = 23
@@ -16,13 +18,13 @@ GPIO.setup(in1, GPIO.OUT)
 GPIO.setup(in2, GPIO.OUT)
 GPIO.setup(ena, GPIO.OUT)
 pwma = GPIO.PWM(ena, 1000)
-pwma.start(25)
+pwma.start(0)
 
 GPIO.setup(in3, GPIO.OUT)
 GPIO.setup(in4, GPIO.OUT)
 GPIO.setup(enb, GPIO.OUT)
 pwmb = GPIO.PWM(enb, 1000)
-pwmb.start(25)
+pwmb.start(0)
 
 def drive(in_1, in_2, pwm, speed):
     print(in_1, in_2, pwm, speed)
@@ -37,7 +39,7 @@ def drive(in_1, in_2, pwm, speed):
         GPIO.output(in_2, GPIO.HIGH)
     pwm.ChangeDutyCycle(abs(speed))
     
-def shutdown():
+def close():
     GPIO.cleanup()
 
 def left(speed):
@@ -59,7 +61,7 @@ def right(speed):
 #time.sleep(5)
 
 #right backward
-right(-75)
-time.sleep(5)
+#right(75)
+#time.sleep(5)
 
-shutdown()
+#close()
