@@ -3,6 +3,7 @@ import time
 
 # for left and right side
 # positive speed is forward, negative speed is backward
+# 0 <= speed <= 100
 
 #GPIO.cleanup()
 
@@ -19,13 +20,13 @@ GPIO.setup(in1, GPIO.OUT)
 GPIO.setup(in2, GPIO.OUT)
 GPIO.setup(ena, GPIO.OUT)
 pwma = GPIO.PWM(ena, 1000)
-pwma.start(25)
+pwma.start(0)
 
 GPIO.setup(in3, GPIO.OUT)
 GPIO.setup(in4, GPIO.OUT)
 GPIO.setup(enb, GPIO.OUT)
 pwmb = GPIO.PWM(enb, 1000)
-pwmb.start(25)
+pwmb.start(0)
 
 def drive(in_1, in_2, pwm, speed):
     print(in_1, in_2, pwm, speed)
@@ -40,7 +41,7 @@ def drive(in_1, in_2, pwm, speed):
         GPIO.output(in_2, GPIO.HIGH)
     pwm.ChangeDutyCycle(abs(speed))
     
-def shutdown():
+def close():
     GPIO.cleanup()
 
 def left(speed):
@@ -62,7 +63,11 @@ def right(speed):
 #time.sleep(5)
 
 #right backward
+<<<<<<< HEAD
 #right(-75)
+=======
+#right(75)
+>>>>>>> 04039d4401cbd88a3d203c442ed6a1b86a8fe580
 #time.sleep(5)
 
-shutdown()
+#close()
