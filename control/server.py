@@ -2,6 +2,7 @@ import socket
 import select
 import ast
 import l298nControl
+import hatControl
 
 serverAddr = ("0.0.0.0", 6000)
 server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -26,11 +27,13 @@ try:
                 print("movement", leftSpeed, rightSpeed)
                 l298nControl.left(leftSpeed)
                 l298nControl.right(rightSpeed)
-                
             elif header == "cam":
-                # camera control
-                print("camera")
-                # drive servo motor here
+                xAngle = data[1]
+                yAngle = data[2]
+                print("camera", xAngle, yAngle)
+                hatControl.xChange(xAngle)
+                hatControl.yChange(yAngle)
 
 except KeyboardInterrupt as e:
     l298nControl.close()
+    hatControl.close()
