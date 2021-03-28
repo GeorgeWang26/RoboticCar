@@ -37,3 +37,4 @@ try:
 except KeyboardInterrupt as e:
     l298nControl.close()
     hatControl.close()
+    server.close()

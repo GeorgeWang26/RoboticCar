@@ -78,4 +78,5 @@ except KeyboardInterrupt as e:
     camData = str(['cam', 90, 90]).encode('utf-8')
     client.sendto(camData, serverAddr)
     joy.close()
+    client.close()
     print('terminate')
