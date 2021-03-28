@@ -53,7 +53,7 @@ def close():
     right(0)
     GPIO.cleanup()
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     #left forward
     #left(75)
     #time.sleep(5)
