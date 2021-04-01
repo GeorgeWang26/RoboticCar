@@ -53,20 +53,21 @@ def close():
     right(0)
     GPIO.cleanup()
 
-#left forward
-#left(75)
-#time.sleep(5)
+# if __name__ == '__main__':
+    #left forward
+    #left(75)
+    #time.sleep(5)
 
-#left backward
-#left(-75)
-#time.sleep(5)
+    #left backward
+    #left(-75)
+    #time.sleep(5)
 
-#right forward
-#right(75)
-#time.sleep(5)
+    #right forward
+    #right(75)
+    #time.sleep(5)
 
-#right backward
-#right(-75)
-#time.sleep(5)
+    #right backward
+    #right(-75)
+    #time.sleep(5)
 
-#close()
+    #close()

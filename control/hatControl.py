@@ -1,8 +1,5 @@
-#!/usr/bin/python3
-
-# pip3 install adafruit-circuitpython-servokit
-
 from adafruit_servokit import ServoKit
+# pip3 install adafruit-circuitpython-servokit
 
 # init 16 channels hat
 kit = ServoKit(channels=16)
@@ -23,17 +20,11 @@ x.angle = 90
 y.angle = 90
 
 def xChange(angle):
-    x.angle = calculate(angle)
+    x.angle = angle
 
 def yChange(angle):
-    y.angle = calculate(angle)
+    y.angle = angle
 
-
-def calculate(angle):
-    # enlarge the input angle
-    angle = angle*2 + 90
-    if angle < 0:
-        angle = 0
-    if angle > 180:
-        angle = 180
-    return round(angle, 2)
+def close():
+    x.angle = 0
+    y.angle = 0

@@ -10,14 +10,7 @@ count = 0
 try:
     while True:
         if (time.time() - prevTime) > 0.2:
-            stick = joy.rightStick()
-            x = stick[0] * 0.3
-            y = stick[1] * 0.8
-            # here will be sending msg
-            print(x, y)
-            # print(count)
-            # count+=1
-            # get newest time again for pressision
+            print(joy.rightThumbstick())
             prevTime = time.time()
         
 except KeyboardInterrupt as e:
